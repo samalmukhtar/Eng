@@ -428,6 +428,87 @@
         .tab-content.active {
             display: block;
         }
+        
+        /* أنماط جديدة لقسم إدخال الجملة */
+        .sentence-input-section {
+            background-color: #fff3e0;
+            padding: 25px;
+            border-radius: 20px;
+            width: 100%;
+            margin-top: 30px;
+            border: 3px solid #ff9800;
+        }
+        
+        .sentence-textarea {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.3rem;
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            text-align: left;
+            direction: ltr;
+            min-height: 100px;
+            resize: vertical;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .sentence-textarea:focus {
+            outline: none;
+            border-color: #f57c00;
+            box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.2);
+        }
+        
+        .add-btn {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 15px 0;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .add-btn:hover {
+            background-color: #f57c00;
+            transform: scale(1.05);
+        }
+        
+        .add-btn i {
+            margin-left: 10px;
+        }
+        
+        .user-added {
+            border: 3px solid #4caf50;
+            animation: pulse 1s;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
@@ -439,11 +520,11 @@
         
         <div class="teacher-note">
             <i class="fas fa-lightbulb"></i> 
-            <span>أهلاً يا صديقي! أنا أستاذك وسأساعدك لتتعلم كيف تتحدث عن نفسك بالإنجليزية. الآن يمكنك إدخال كلماتك الخاصة وسأصنع منها جملة رائعة!</span>
+            <span>أهلاً يا صديقي! أنا أستاذك وسأساعدك لتتعلم كيف تتحدث عن نفسك بالإنجليزية. الآن يمكنك إدخال كلماتك الخاصة أو جمل كاملة وسأصنع منها جملة رائعة!</span>
         </div>
         
         <div class="content">
-            <div class="text-section">
+            <div class="text-section" id="textSection">
                 <h2><i class="fas fa-book-open"></i> النص التعليمي</h2>
                 
                 <div class="sentence-block" id="sentence1">
@@ -454,7 +535,7 @@
                     <div class="word-pair-container">
                         <div class="word-pair">
                             <div class="english-word">My</div>
-                            <div class="arabic-word">我的</div>
+                            <div class="arabic-word">my</div>
                         </div>
                         <div class="word-pair">
                             <div class="english-word">name</div>
@@ -519,7 +600,7 @@
                         </div>
                         <div class="word-pair">
                             <div class="english-word">My</div>
-                            <div class="arabic-word">مدرستي</div>
+                            <div class="arabic-word">my</div>
                         </div>
                         <div class="word-pair">
                             <div class="english-word">is</div>
@@ -540,7 +621,7 @@
                     <div class="word-pair-container">
                         <div class="word-pair">
                             <div class="english-word">My</div>
-                            <div class="arabic-word">معلمي</div>
+                            <div class="arabic-word">my</div>
                         </div>
                         <div class="word-pair">
                             <div class="english-word">teachers</div>
@@ -589,15 +670,15 @@
                     <div class="word-pair-container">
                         <div class="word-pair">
                             <div class="english-word">My</div>
-                            <div class="arabic-word">أفضل</div>
+                            <div class="arabic-word">my</div>
                         </div>
                         <div class="word-pair">
                             <div class="english-word">best</div>
-                            <div class="arabic-word">قدوة</div>
+                            <div class="arabic-word">أفضل</div>
                         </div>
                         <div class="word-pair">
                             <div class="english-word">example</div>
-                            <div class="arabic-word">لي</div>
+                            <div class="arabic-word">قدوة</div>
                         </div>
                         <div class="word-pair">
                             <div class="english-word">is</div>
@@ -656,6 +737,7 @@
                 <div class="tab-buttons">
                     <button class="tab-button active" onclick="switchTab('tab1')">جمل عشوائية</button>
                     <button class="tab-button" onclick="switchTab('tab2')">اصنع جملتك</button>
+                    <button class="tab-button" onclick="switchTab('tab3')">أضف جملة</button>
                 </div>
                 
                 <!-- Tab 1: Random Sentence Generator -->
@@ -747,6 +829,52 @@
                         </ul>
                     </div>
                 </div>
+                
+                <!-- Tab 3: Add Custom Sentence -->
+                <div id="tab3" class="tab-content">
+                    <h2><i class="fas fa-plus-circle"></i> أضف جملة جديدة</h2>
+                    
+                    <div class="sentence-input-section">
+                        <p style="font-size: 1.3rem; margin-bottom: 20px; color: #5d4037; text-align: center;">
+                            أدخل جملة بالإنجليزية وسأقوم بترجمتها وعرضها مع الكلمات المفردة!
+                        </p>
+                        
+                        <div class="input-group">
+                            <label class="input-label">أدخل جملة بالإنجليزية:</label>
+                            <textarea class="sentence-textarea" id="customSentence" placeholder="مثل: I like to play with my friends. أو My father works in an office."></textarea>
+                            <span class="small-note">اكتب جملة كاملة باللغة الإنجليزية وسأترجمها لك</span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">أو اختر جملة جاهزة:</label>
+                            <div class="word-preview" id="sampleSentences">
+                                <!-- ستتم إضافة الجمل الجاهزة هنا عبر JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <button class="add-btn" onclick="addCustomSentence()">
+                            <i class="fas fa-plus"></i> أضف الجملة للقائمة
+                        </button>
+                        
+                        <div class="result-box" id="sentencePreview">
+                            ستظهر الترجمة والكلمات المفردة هنا
+                        </div>
+                        
+                        <div style="margin-top: 20px; padding: 15px; background-color: #e8f5e9; border-radius: 10px; color: #2e7d32;">
+                            <i class="fas fa-info-circle"></i> <strong>ملاحظة:</strong> سيتم إضافة الجملة التي تدخلها إلى قائمة الجمل أعلاه مع ترجمتها وشرح الكلمات.
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; background-color: #fff3e0; padding: 20px; border-radius: 15px; width: 100%;">
+                        <h3><i class="fas fa-lightbulb"></i> أفكار لجمل مفيدة:</h3>
+                        <ul style="padding-right: 20px; margin-top: 10px; font-size: 1.2rem;">
+                            <li style="margin-bottom: 10px;">I have a big family.</li>
+                            <li style="margin-bottom: 10px;">My favorite color is blue.</li>
+                            <li style="margin-bottom: 10px;">I can speak Arabic and English.</li>
+                            <li>I want to be a doctor when I grow up.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -818,6 +946,97 @@
         const arabicExtraPhrases = ['كل يوم', 'كثيراً', 'دائماً', 'في حياتي', 'مع أصدقائي', 'في البيت', 'في المدرسة', 'على جهاز الكمبيوتر'];
         
         // قاموس للكلمات الشائعة وترجماتها
+        const wordDictionary = {
+            'my': 'لي',
+            'name': 'اسم',
+            'is': 'هو',
+            'am': 'أكون',
+            'a': '',
+            'student': 'طالب',
+            'study': 'أدرس',
+            'at': 'في',
+            'school': 'مدرسة',
+            'good': 'جيد',
+            'teachers': 'معلمون',
+            'are': 'هم',
+            'great': 'عظيم',
+            'they': 'هم',
+            'help': 'يساعد',
+            'me': 'لي',
+            'learn': 'أتعلم',
+            'every': 'كل',
+            'day': 'يوم',
+            'best': 'أفضل',
+            'example': 'قدوة',
+            'prophet': 'النبي',
+            'muhammad': 'محمد',
+            'love': 'أحب',
+            'learning': 'التعلم',
+            'makes': 'يجعل',
+            'better': 'أفضل',
+            'i': 'أنا',
+            'father': 'أبي',
+            'mother': 'أمي',
+            'brother': 'أخي',
+            'sister': 'أختي',
+            'friend': 'صديق',
+            'like': 'أحب',
+            'play': 'ألعب',
+            'with': 'مع',
+            'computer': 'كمبيوتر',
+            'book': 'كتاب',
+            'game': 'لعبة',
+            'house': 'بيت',
+            'home': 'بيت',
+            'family': 'عائلة',
+            'read': 'أقرأ',
+            'respect': 'أحترم',
+            'people': 'ناس',
+            'books': 'كتب',
+            'games': 'ألعاب',
+            'life': 'حياة',
+            'friends': 'أصدقاء',
+            'color': 'لون',
+            'blue': 'أزرق',
+            'red': 'أحمر',
+            'green': 'أخضر',
+            'yellow': 'أصفر',
+            'can': 'أستطيع',
+            'speak': 'أتحدث',
+            'arabic': 'عربي',
+            'english': 'إنجليزي',
+            'want': 'أريد',
+            'to': 'إلى',
+            'be': 'أكون',
+            'doctor': 'طبيب',
+            'when': 'عندما',
+            'grow': 'أكبر',
+            'up': '',
+            'have': 'لدي',
+            'big': 'كبير',
+            'favorite': 'مفضل',
+            'works': 'يعمل',
+            'in': 'في',
+            'an': '',
+            'office': 'مكتب',
+            'this': 'هذا',
+            'that': 'ذلك',
+            'these': 'هؤلاء',
+            'those': 'أولئك',
+            'it': 'هو',
+            'he': 'هو',
+            'she': 'هي',
+            'we': 'نحن',
+            'you': 'أنت',
+            'they': 'هم',
+            'my': 'لي',
+            'your': 'لك',
+            'his': 'له',
+            'her': 'لها',
+            'our': 'لنا',
+            'their': 'لهم'
+        };
+        
         const commonWords = [
             {en: 'computer', ar: 'كمبيوتر'},
             {en: 'book', ar: 'كتاب'},
@@ -837,6 +1056,18 @@
             {en: 'great', ar: 'عظيم'}
         ];
         
+        // جمل جاهزة كمثال
+        const sampleSentences = [
+            "I have a big family.",
+            "My favorite color is blue.",
+            "I can speak Arabic and English.",
+            "I want to be a doctor when I grow up.",
+            "My father works in an office.",
+            "I like to play football with my friends.",
+            "My mother cooks delicious food.",
+            "We pray together every day."
+        ];
+        
         // تهيئة الكلمات الشائعة
         function initCommonWords() {
             const commonWordsContainer = document.getElementById('commonWords');
@@ -851,6 +1082,29 @@
                 `;
                 commonWordsContainer.appendChild(wordElement);
             });
+        }
+        
+        // تهيئة الجمل الجاهزة
+        function initSampleSentences() {
+            const sampleSentencesContainer = document.getElementById('sampleSentences');
+            sampleSentencesContainer.innerHTML = '';
+            
+            sampleSentences.forEach((sentence, index) => {
+                const sentenceElement = document.createElement('div');
+                sentenceElement.className = 'word-preview-item';
+                sentenceElement.style.cursor = 'pointer';
+                sentenceElement.innerHTML = `
+                    ${sentence}
+                    <button class="remove-btn" onclick="useSampleSentence(${index})">+</button>
+                `;
+                sampleSentencesContainer.appendChild(sentenceElement);
+            });
+        }
+        
+        // استخدام جملة جاهزة
+        function useSampleSentence(index) {
+            document.getElementById('customSentence').value = sampleSentences[index];
+            previewCustomSentence();
         }
         
         // إضافة كلمة إلى الكلمات المختارة
@@ -985,6 +1239,115 @@
             }, 300);
         }
         
+        // معاينة الجملة المخصصة
+        function previewCustomSentence() {
+            const customSentence = document.getElementById('customSentence').value.trim();
+            
+            if (!customSentence) {
+                document.getElementById('sentencePreview').innerHTML = 'أدخل جملة لرؤية الترجمة والكلمات المفردة';
+                return;
+            }
+            
+            // تقسيم الجملة إلى كلمات
+            const words = customSentence.toLowerCase().replace(/[.,?!]/g, '').split(' ');
+            const uniqueWords = [...new Set(words.filter(word => word.length > 0))];
+            
+            // إنشاء معاينة للكلمات المفردة
+            let wordPairsHTML = '<div style="text-align: center; margin-bottom: 10px;"><strong>الكلمات المفردة:</strong></div>';
+            wordPairsHTML += '<div class="word-pair-container">';
+            
+            uniqueWords.forEach(word => {
+                const translation = wordDictionary[word] || '?';
+                wordPairsHTML += `
+                    <div class="word-pair">
+                        <div class="english-word">${word}</div>
+                        <div class="arabic-word">${translation}</div>
+                    </div>
+                `;
+            });
+            
+            wordPairsHTML += '</div>';
+            
+            document.getElementById('sentencePreview').innerHTML = `
+                <div style="margin-bottom: 15px;">
+                    <strong>الجملة الإنجليزية:</strong><br>
+                    ${customSentence}
+                </div>
+                ${wordPairsHTML}
+            `;
+        }
+        
+        // إضافة جملة مخصصة للقائمة
+        function addCustomSentence() {
+            const customSentence = document.getElementById('customSentence').value.trim();
+            
+            if (!customSentence) {
+                alert('الرجاء إدخال جملة أولاً!');
+                return;
+            }
+            
+            // إنشاء معرف فريد للجملة الجديدة
+            const sentenceId = 'sentence' + (document.querySelectorAll('.sentence-block').length + 1);
+            
+            // تقسيم الجملة إلى كلمات فريدة
+            const words = customSentence.toLowerCase().replace(/[.,?!]/g, '').split(' ');
+            const uniqueWords = [...new Set(words.filter(word => word.length > 0))];
+            
+            // إنشاء أزواج الكلمات
+            let wordPairsHTML = '';
+            uniqueWords.forEach(word => {
+                const translation = wordDictionary[word] || word;
+                wordPairsHTML += `
+                    <div class="word-pair">
+                        <div class="english-word">${word}</div>
+                        <div class="arabic-word">${translation}</div>
+                    </div>
+                `;
+            });
+            
+            // إنشاء كتلة الجملة الجديدة
+            const newSentenceBlock = document.createElement('div');
+            newSentenceBlock.className = 'sentence-block user-added';
+            newSentenceBlock.id = sentenceId;
+            newSentenceBlock.innerHTML = `
+                <div class="english-text">${customSentence}</div>
+                <button class="speak-btn" onclick="speakText('${sentenceId}')">
+                    <i class="fas fa-volume-up"></i> استمع للنطق
+                </button>
+                <button class="delete-btn" onclick="deleteSentence('${sentenceId}')">
+                    <i class="fas fa-trash"></i> حذف هذه الجملة
+                </button>
+                <div class="word-pair-container">
+                    ${wordPairsHTML}
+                </div>
+            `;
+            
+            // إضافة الجملة الجديدة إلى قسم النص
+            const textSection = document.getElementById('textSection');
+            textSection.appendChild(newSentenceBlock);
+            
+            // مسح حقل الإدخال
+            document.getElementById('customSentence').value = '';
+            document.getElementById('sentencePreview').innerHTML = 'تمت إضافة الجملة بنجاح!';
+            
+            // إظهار رسالة نجاح
+            alert('تمت إضافة الجملة بنجاح إلى القائمة!');
+            
+            // تبديل إلى التبويب الأول لرؤية الجملة المضافة
+            switchTab('tab1');
+        }
+        
+        // حذف جملة مضافة من قبل المستخدم
+        function deleteSentence(sentenceId) {
+            if (confirm('هل تريد حذف هذه الجملة؟')) {
+                const sentenceElement = document.getElementById(sentenceId);
+                if (sentenceElement) {
+                    sentenceElement.remove();
+                    alert('تم حذف الجملة بنجاح!');
+                }
+            }
+        }
+        
         // جعل الجمل القابلة للنقر
         document.querySelectorAll('.english-text').forEach(element => {
             element.style.cursor = 'pointer';
@@ -1001,10 +1364,15 @@
             }
         });
         
+        // تحديث معاينة الجملة أثناء الكتابة
+        document.getElementById('customSentence').addEventListener('input', previewCustomSentence);
+        
         // تهيئة الصفحة عند التحميل
         window.addEventListener('DOMContentLoaded', function() {
             initCommonWords();
+            initSampleSentences();
             generateNewSentence();
+            previewCustomSentence();
         });
     </script>
 </body>
