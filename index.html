@@ -1,0 +1,1011 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم الإنجليزية - تحدث عن نفسك</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f7ff;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background-image: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 150, 0.1);
+            overflow: hidden;
+            border: 8px solid #4a90e2;
+        }
+        
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 5px solid #3a7bc8;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 0 #3a7bc8;
+        }
+        
+        .teacher-note {
+            background-color: #e8f5e9;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 15px;
+            border-right: 5px solid #4caf50;
+            font-size: 1.2rem;
+            color: #2e7d32;
+        }
+        
+        .teacher-note i {
+            color: #4caf50;
+            margin-left: 10px;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        
+        .text-section {
+            flex: 2;
+            min-width: 300px;
+            padding: 20px;
+            border-left: 3px dashed #4a90e2;
+        }
+        
+        .controls {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        h2 {
+            color: #4a90e2;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ff9800;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: #1a237e;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .sentence-block {
+            background-color: #f5f9ff;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 2px solid #c5d9ff;
+            transition: transform 0.3s;
+        }
+        
+        .sentence-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 150, 0.1);
+        }
+        
+        .english-text {
+            font-size: 1.8rem;
+            color: #1a237e;
+            margin-bottom: 10px;
+            font-weight: bold;
+            line-height: 1.8;
+            text-align: left;
+            direction: ltr;
+        }
+        
+        .arabic-translation {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+        }
+        
+        .word-pair {
+            background-color: #e8eaf6;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 100px;
+        }
+        
+        .english-word {
+            font-weight: bold;
+            color: #1a237e;
+            font-size: 1.2rem;
+        }
+        
+        .arabic-word {
+            color: #d32f2f;
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+        
+        .speak-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .speak-btn:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+        
+        .speak-btn i {
+            margin-left: 8px;
+        }
+        
+        .generate-section {
+            background-color: #fff8e1;
+            padding: 25px;
+            border-radius: 20px;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            border: 3px solid #ffb300;
+        }
+        
+        .generate-btn {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .generate-btn:hover {
+            background-color: #f57c00;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+        }
+        
+        .generate-btn i {
+            margin-left: 10px;
+        }
+        
+        .new-sentence {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 2px solid #4caf50;
+            font-size: 1.5rem;
+            color: #1b5e20;
+            text-align: left;
+            direction: ltr;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .new-sentence-arabic {
+            background-color: #f3e5f5;
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            border: 2px solid #9c27b0;
+            font-size: 1.3rem;
+            color: #4a148c;
+            text-align: right;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a237e;
+            color: white;
+            margin-top: 20px;
+            border-top: 5px solid #ff9800;
+        }
+        
+        /* أنماط لقسم إنشاء الجمل من كلمات المستخدم */
+        .word-input-section {
+            background-color: #f0f4ff;
+            padding: 25px;
+            border-radius: 20px;
+            width: 100%;
+            margin-top: 30px;
+            border: 3px solid #7e57c2;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-label {
+            display: block;
+            font-size: 1.3rem;
+            color: #5e35b1;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .word-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.3rem;
+            border: 2px solid #7e57c2;
+            border-radius: 10px;
+            text-align: right;
+            direction: ltr;
+        }
+        
+        .word-input:focus {
+            outline: none;
+            border-color: #5e35b1;
+            box-shadow: 0 0 0 3px rgba(94, 53, 177, 0.2);
+        }
+        
+        .small-note {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        .create-btn {
+            background-color: #7e57c2;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 15px 0;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        
+        .create-btn:hover {
+            background-color: #5e35b1;
+            transform: scale(1.05);
+        }
+        
+        .create-btn i {
+            margin-left: 10px;
+        }
+        
+        .result-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 2px solid #29b6f6;
+            font-size: 1.5rem;
+            color: #0064b7;
+            text-align: left;
+            direction: ltr;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .word-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .word-preview-item {
+            background-color: #e1bee7;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .word-preview-item .remove-btn {
+            background: none;
+            border: none;
+            color: #5e35b1;
+            cursor: pointer;
+            margin-right: 5px;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .text-section {
+                border-left: none;
+                border-bottom: 3px dashed #4a90e2;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .english-text {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .word-pair-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab-button.active {
+            color: #4a90e2;
+            border-bottom: 3px solid #4a90e2;
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chalkboard-teacher"></i> درس الإنجليزية - تحدث عن نفسك</h1>
+            <p style="font-size: 1.3rem;">مع الأستاذ ذو الخبرة 25 سنة - لطلاب الصف الأول</p>
+        </header>
+        
+        <div class="teacher-note">
+            <i class="fas fa-lightbulb"></i> 
+            <span>أهلاً يا صديقي! أنا أستاذك وسأساعدك لتتعلم كيف تتحدث عن نفسك بالإنجليزية. الآن يمكنك إدخال كلماتك الخاصة وسأصنع منها جملة رائعة!</span>
+        </div>
+        
+        <div class="content">
+            <div class="text-section">
+                <h2><i class="fas fa-book-open"></i> النص التعليمي</h2>
+                
+                <div class="sentence-block" id="sentence1">
+                    <div class="english-text">My name is Sam. I am a student.</div>
+                    <button class="speak-btn" onclick="speakText('sentence1')">
+                        <i class="fas fa-volume-up"></i> استمع للنطق
+                    </button>
+                    <div class="word-pair-container">
+                        <div class="word-pair">
+                            <div class="english-word">My</div>
+                            <div class="arabic-word">我的</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">name</div>
+                            <div class="arabic-word">اسم</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">is</div>
+                            <div class="arabic-word">هو</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">Sam</div>
+                            <div class="arabic-word">سام</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">I</div>
+                            <div class="arabic-word">أنا</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">am</div>
+                            <div class="arabic-word">أكون</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">a</div>
+                            <div class="arabic-word">ـ</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">student</div>
+                            <div class="arabic-word">طالب</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sentence-block" id="sentence2">
+                    <div class="english-text">I study at Dar Al-Eman School. My school is good.</div>
+                    <button class="speak-btn" onclick="speakText('sentence2')">
+                        <i class="fas fa-volume-up"></i> استمع للنطق
+                    </button>
+                    <div class="word-pair-container">
+                        <div class="word-pair">
+                            <div class="english-word">I</div>
+                            <div class="arabic-word">أنا</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">study</div>
+                            <div class="arabic-word">أدرس</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">at</div>
+                            <div class="arabic-word">في</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">Dar</div>
+                            <div class="arabic-word">دار</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">Al-Eman</div>
+                            <div class="arabic-word">الإيمان</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">School</div>
+                            <div class="arabic-word">مدرسة</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">My</div>
+                            <div class="arabic-word">مدرستي</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">is</div>
+                            <div class="arabic-word">هي</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">good</div>
+                            <div class="arabic-word">جيدة</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sentence-block" id="sentence3">
+                    <div class="english-text">My teachers are great. They help me learn every day.</div>
+                    <button class="speak-btn" onclick="speakText('sentence3')">
+                        <i class="fas fa-volume-up"></i> استمع للنطق
+                    </button>
+                    <div class="word-pair-container">
+                        <div class="word-pair">
+                            <div class="english-word">My</div>
+                            <div class="arabic-word">معلمي</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">teachers</div>
+                            <div class="arabic-word">معلمون</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">are</div>
+                            <div class="arabic-word">هم</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">great</div>
+                            <div class="arabic-word">عظماء</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">They</div>
+                            <div class="arabic-word">هم</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">help</div>
+                            <div class="arabic-word">يساعدون</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">me</div>
+                            <div class="arabic-word">لي</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">learn</div>
+                            <div class="arabic-word">أتعلم</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">every</div>
+                            <div class="arabic-word">كل</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">day</div>
+                            <div class="arabic-word">يوم</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sentence-block" id="sentence4">
+                    <div class="english-text">My best example is Prophet Muhammad (peace be upon him).</div>
+                    <button class="speak-btn" onclick="speakText('sentence4')">
+                        <i class="fas fa-volume-up"></i> استمع للنطق
+                    </button>
+                    <div class="word-pair-container">
+                        <div class="word-pair">
+                            <div class="english-word">My</div>
+                            <div class="arabic-word">أفضل</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">best</div>
+                            <div class="arabic-word">قدوة</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">example</div>
+                            <div class="arabic-word">لي</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">is</div>
+                            <div class="arabic-word">هو</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">Prophet</div>
+                            <div class="arabic-word">النبي</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">Muhammad</div>
+                            <div class="arabic-word">محمد</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sentence-block" id="sentence5">
+                    <div class="english-text">I love learning. Learning makes me better.</div>
+                    <button class="speak-btn" onclick="speakText('sentence5')">
+                        <i class="fas fa-volume-up"></i> استمع للنطق
+                    </button>
+                    <div class="word-pair-container">
+                        <div class="word-pair">
+                            <div class="english-word">I</div>
+                            <div class="arabic-word">أنا</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">love</div>
+                            <div class="arabic-word">أحب</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">learning</div>
+                            <div class="arabic-word">التعلم</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">Learning</div>
+                            <div class="arabic-word">التعلم</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">makes</div>
+                            <div class="arabic-word">يجعلني</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">me</div>
+                            <div class="arabic-word">أنا</div>
+                        </div>
+                        <div class="word-pair">
+                            <div class="english-word">better</div>
+                            <div class="arabic-word">أفضل</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="tab-buttons">
+                    <button class="tab-button active" onclick="switchTab('tab1')">جمل عشوائية</button>
+                    <button class="tab-button" onclick="switchTab('tab2')">اصنع جملتك</button>
+                </div>
+                
+                <!-- Tab 1: Random Sentence Generator -->
+                <div id="tab1" class="tab-content active">
+                    <h2><i class="fas fa-magic"></i> أنشئ جملك الخاصة</h2>
+                    
+                    <div class="generate-section">
+                        <p style="font-size: 1.3rem; margin-bottom: 20px; color: #5d4037;">
+                            اضغط على الزر لإنشاء جملة جديدة باللغة الإنجليزية يمكنك استخدامها للتحدث عن نفسك
+                        </p>
+                        
+                        <button class="generate-btn" onclick="generateNewSentence()">
+                            <i class="fas fa-sync-alt"></i> أنشئ جملة جديدة
+                        </button>
+                        
+                        <div class="new-sentence" id="newSentence">
+                            اضغط على الزر أعلاه لإنشاء جملة جديدة
+                        </div>
+                        
+                        <div class="new-sentence-arabic" id="newSentenceArabic">
+                            الترجمة العربية ستظهر هنا
+                        </div>
+                        
+                        <button class="speak-btn" onclick="speakNewSentence()" style="margin-top: 15px;">
+                            <i class="fas fa-volume-up"></i> استمع للجملة الجديدة
+                        </button>
+                    </div>
+                    
+                    <div style="margin-top: 30px; background-color: #f3e5f5; padding: 20px; border-radius: 15px; width: 100%;">
+                        <h3><i class="fas fa-graduation-cap"></i> نصائح من أستاذك:</h3>
+                        <ul style="padding-right: 20px; margin-top: 10px; font-size: 1.2rem;">
+                            <li style="margin-bottom: 10px;">كرر الجمل بعد سماع النطق</li>
+                            <li style="margin-bottom: 10px;">حاول تكوين جمل جديدة بنفس الكلمات</li>
+                            <li style="margin-bottom: 10px;">تحدث عن نفسك وعن قدوتك في الحياة</li>
+                            <li>قل: "أحب التعلم" و "أحب الجلوس على الكمبيوتر لأتعلم"</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Tab 2: User Word Input -->
+                <div id="tab2" class="tab-content">
+                    <h2><i class="fas fa-pencil-alt"></i> اصنع جملة من كلماتك</h2>
+                    
+                    <div class="word-input-section">
+                        <p style="font-size: 1.3rem; margin-bottom: 20px; color: #5e35b1; text-align: center;">
+                            أدخل كلماتك المفضلة وسأقوم بإنشاء جملة جميلة منها!
+                        </p>
+                        
+                        <div class="input-group">
+                            <label class="input-label">أدخل الكلمات التي تحبها (مفصولة بفواصل):</label>
+                            <input type="text" class="word-input" id="userWords" placeholder="مثل: computer, learning, teacher, school">
+                            <span class="small-note">يمكنك كتابة كلمات إنجليزية مثل: book, game, friend, house</span>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">أو اختر من الكلمات الشائعة:</label>
+                            <div class="word-preview" id="commonWords">
+                                <!-- ستتم إضافة الكلمات الشائعة هنا عبر JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">الكلمات المختارة:</label>
+                            <div class="word-preview" id="selectedWords">
+                                <!-- ستظهر الكلمات المختارة هنا -->
+                            </div>
+                        </div>
+                        
+                        <button class="create-btn" onclick="createSentenceFromWords()">
+                            <i class="fas fa-cogs"></i> أنشئ جملة من كلماتي
+                        </button>
+                        
+                        <div class="result-box" id="userSentenceResult">
+                            ستظهر جملتك هنا بعد إدخال الكلمات
+                        </div>
+                        
+                        <button class="speak-btn" onclick="speakUserSentence()" style="margin-top: 15px; width: 100%;">
+                            <i class="fas fa-volume-up"></i> استمع لجملتك
+                        </button>
+                    </div>
+                    
+                    <div style="margin-top: 30px; background-color: #e3f2fd; padding: 20px; border-radius: 15px; width: 100%;">
+                        <h3><i class="fas fa-lightbulb"></i> كيف تصنع جملة رائعة:</h3>
+                        <ul style="padding-right: 20px; margin-top: 10px; font-size: 1.2rem;">
+                            <li style="margin-bottom: 10px;">اختر كلمات تحبها أو تستخدمها يومياً</li>
+                            <li style="margin-bottom: 10px;">اجمع بين أسماء وأفعال: like, play, study, love</li>
+                            <li style="margin-bottom: 10px;">جرب كلمات مثل: computer, book, game, teacher, friend</li>
+                            <li>سيقوم البرنامج بإنشاء جملة مفيدة من كلماتك</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>درس تعليمي للغة الإنجليزية - تصميم مع حب من أستاذ ذو خبرة 25 سنة</p>
+            <p>الدرس مناسب للأطفال من عمر 6 سنوات - جمل قصيرة وسهلة الحفظ</p>
+        </footer>
+    </div>
+
+    <script>
+        // دالة لتبديل التبويبات
+        function switchTab(tabId) {
+            // إخفاء جميع المحتويات
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // إزالة النشاط من جميع الأزرار
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // إظهار المحتوى المحدد وتفعيل الزر
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        // دالة للتحدث بالنص الإنجليزي
+        function speakText(sentenceId) {
+            const sentenceElement = document.getElementById(sentenceId);
+            const englishText = sentenceElement.querySelector('.english-text').textContent;
+            const utterance = new SpeechSynthesisUtterance(englishText);
+            utterance.lang = 'en-US';
+            utterance.rate = 0.8; // سرعة أبطأ للأطفال
+            window.speechSynthesis.speak(utterance);
+        }
+        
+        // دالة للتحدث بالجملة الجديدة
+        function speakNewSentence() {
+            const newSentence = document.getElementById('newSentence').textContent;
+            if (newSentence && !newSentence.includes('اضغط على الزر')) {
+                const utterance = new SpeechSynthesisUtterance(newSentence);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.8;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+        
+        // دالة للتحدث بجملة المستخدم
+        function speakUserSentence() {
+            const userSentence = document.getElementById('userSentenceResult').textContent;
+            if (userSentence && !userSentence.includes('ستظهر جملتك')) {
+                const utterance = new SpeechSynthesisUtterance(userSentence);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.8;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+        
+        // قوائم الكلمات لإنشاء جمل جديدة
+        const subjects = ['I', 'My teacher', 'My father', 'My mother', 'We', 'My brother', 'My sister', 'My friend'];
+        const verbs = ['love', 'like', 'study', 'learn', 'respect', 'help', 'play with', 'read'];
+        const objects = ['learning', 'my school', 'my teachers', 'my computer', 'Prophet Muhammad', 'good people', 'books', 'games'];
+        const extraPhrases = ['every day', 'very much', 'always', 'in my life', 'with my friends', 'at home', 'at school', 'on my computer'];
+        
+        const arabicSubjects = ['أنا', 'معلمي', 'أبي', 'أمي', 'نحن', 'أخي', 'أختي', 'صديقي'];
+        const arabicVerbs = ['أحب', 'أحب', 'أدرس', 'أتعلم', 'أحترم', 'أساعد', 'ألعب مع', 'أقرأ'];
+        const arabicObjects = ['التعلم', 'مدرستي', 'معلمي', 'كمبيوتري', 'النبي محمد', 'الأشخاص الطيبين', 'الكتب', 'الألعاب'];
+        const arabicExtraPhrases = ['كل يوم', 'كثيراً', 'دائماً', 'في حياتي', 'مع أصدقائي', 'في البيت', 'في المدرسة', 'على جهاز الكمبيوتر'];
+        
+        // قاموس للكلمات الشائعة وترجماتها
+        const commonWords = [
+            {en: 'computer', ar: 'كمبيوتر'},
+            {en: 'book', ar: 'كتاب'},
+            {en: 'teacher', ar: 'معلم'},
+            {en: 'school', ar: 'مدرسة'},
+            {en: 'friend', ar: 'صديق'},
+            {en: 'game', ar: 'لعبة'},
+            {en: 'learning', ar: 'تعلم'},
+            {en: 'home', ar: 'بيت'},
+            {en: 'family', ar: 'عائلة'},
+            {en: 'study', ar: 'أدرس'},
+            {en: 'play', ar: 'ألعب'},
+            {en: 'read', ar: 'أقرأ'},
+            {en: 'love', ar: 'أحب'},
+            {en: 'like', ar: 'أحب'},
+            {en: 'good', ar: 'جيد'},
+            {en: 'great', ar: 'عظيم'}
+        ];
+        
+        // تهيئة الكلمات الشائعة
+        function initCommonWords() {
+            const commonWordsContainer = document.getElementById('commonWords');
+            commonWordsContainer.innerHTML = '';
+            
+            commonWords.forEach(word => {
+                const wordElement = document.createElement('div');
+                wordElement.className = 'word-preview-item';
+                wordElement.innerHTML = `
+                    ${word.en} (${word.ar})
+                    <button class="remove-btn" onclick="addWordToSelection('${word.en}')">+</button>
+                `;
+                commonWordsContainer.appendChild(wordElement);
+            });
+        }
+        
+        // إضافة كلمة إلى الكلمات المختارة
+        function addWordToSelection(word) {
+            const selectedWordsContainer = document.getElementById('selectedWords');
+            
+            // تحقق إذا كانت الكلمة موجودة بالفعل
+            const existingWords = Array.from(selectedWordsContainer.children).map(item => 
+                item.textContent.split(' ')[0]
+            );
+            
+            if (!existingWords.includes(word)) {
+                const wordElement = document.createElement('div');
+                wordElement.className = 'word-preview-item';
+                wordElement.innerHTML = `
+                    ${word}
+                    <button class="remove-btn" onclick="removeWordFromSelection(this)">x</button>
+                `;
+                selectedWordsContainer.appendChild(wordElement);
+            }
+            
+            // تحديث حقل الإدخال
+            updateInputField();
+        }
+        
+        // إزالة كلمة من الكلمات المختارة
+        function removeWordFromSelection(button) {
+            button.parentElement.remove();
+            updateInputField();
+        }
+        
+        // تحديث حقل الإدخال بناء على الكلمات المختارة
+        function updateInputField() {
+            const selectedWordsContainer = document.getElementById('selectedWords');
+            const words = Array.from(selectedWordsContainer.children).map(item => 
+                item.textContent.replace('x', '').trim()
+            );
+            
+            document.getElementById('userWords').value = words.join(', ');
+        }
+        
+        // دالة لإنشاء جملة جديدة عشوائية
+        function generateNewSentence() {
+            const subjectIndex = Math.floor(Math.random() * subjects.length);
+            const verbIndex = Math.floor(Math.random() * verbs.length);
+            const objectIndex = Math.floor(Math.random() * objects.length);
+            const extraIndex = Math.floor(Math.random() * extraPhrases.length);
+            
+            // 70% من الوقت نضيف عبارة إضافية
+            const includeExtra = Math.random() < 0.7;
+            
+            let newSentence = `${subjects[subjectIndex]} ${verbs[verbIndex]} ${objects[objectIndex]}`;
+            let arabicSentence = `${arabicSubjects[subjectIndex]} ${arabicVerbs[verbIndex]} ${arabicObjects[objectIndex]}`;
+            
+            if (includeExtra) {
+                newSentence += ` ${extraPhrases[extraIndex]}`;
+                arabicSentence += ` ${arabicExtraPhrases[extraIndex]}`;
+            }
+            
+            newSentence += '.';
+            arabicSentence += '.';
+            
+            document.getElementById('newSentence').textContent = newSentence;
+            document.getElementById('newSentenceArabic').textContent = arabicSentence;
+            
+            // إضافة رسوم متحركة بسيطة
+            const newSentenceElement = document.getElementById('newSentence');
+            newSentenceElement.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                newSentenceElement.style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        // دالة لإنشاء جملة من كلمات المستخدم
+        function createSentenceFromWords() {
+            const userInput = document.getElementById('userWords').value.trim();
+            
+            if (!userInput) {
+                document.getElementById('userSentenceResult').textContent = 'الرجاء إدخال بعض الكلمات أولاً!';
+                return;
+            }
+            
+            // تحليل الكلمات المدخلة
+            const words = userInput.split(',').map(word => word.trim()).filter(word => word.length > 0);
+            
+            if (words.length === 0) {
+                document.getElementById('userSentenceResult').textContent = 'لم أجد كلمات صالحة. حاول مرة أخرى!';
+                return;
+            }
+            
+            // إنشاء جملة من الكلمات
+            const sentenceTemplates = [
+                "I like to use my {word1} to learn about {word2}.",
+                "My teacher helps me with {word1} and {word2}.",
+                "I love {word1} because it makes {word2} fun.",
+                "Every day, I {word1} with my {word2}.",
+                "Learning {word1} is important for {word2}.",
+                "I use my computer for {word1} and {word2}.",
+                "{word1} and {word2} are my favorite things.",
+                "I study {word1} at school and {word2} at home."
+            ];
+            
+            // اختيار قالب عشوائي
+            const templateIndex = Math.floor(Math.random() * sentenceTemplates.length);
+            let sentence = sentenceTemplates[templateIndex];
+            
+            // استبدال العناصر النائبة بالكلمات الفعلية
+            for (let i = 0; i < Math.min(words.length, 2); i++) {
+                const placeholder = `{word${i+1}}`;
+                sentence = sentence.replace(placeholder, words[i]);
+            }
+            
+            // إذا كان هناك عناصر نائبة باقية، نملأها بكلمات عشوائية
+            if (sentence.includes('{word1}')) {
+                sentence = sentence.replace('{word1}', words[0] || 'learning');
+            }
+            if (sentence.includes('{word2}')) {
+                sentence = sentence.replace('{word2}', words[1] || 'studying');
+            }
+            
+            // تحسين الجملة النهائية
+            sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
+            
+            // عرض النتيجة
+            document.getElementById('userSentenceResult').textContent = sentence;
+            
+            // إضافة رسوم متحركة
+            const resultBox = document.getElementById('userSentenceResult');
+            resultBox.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                resultBox.style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        // جعل الجمل القابلة للنقر
+        document.querySelectorAll('.english-text').forEach(element => {
+            element.style.cursor = 'pointer';
+            element.addEventListener('click', function() {
+                const sentenceId = this.closest('.sentence-block').id;
+                speakText(sentenceId);
+            });
+        });
+        
+        // السماح بإدخال الكلمات بالضغط على Enter
+        document.getElementById('userWords').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                createSentenceFromWords();
+            }
+        });
+        
+        // تهيئة الصفحة عند التحميل
+        window.addEventListener('DOMContentLoaded', function() {
+            initCommonWords();
+            generateNewSentence();
+        });
+    </script>
+</body>
+</html>
